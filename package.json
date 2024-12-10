@@ -6,13 +6,17 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "build:ui": "rmdir /s /q dist && cd ../part2-notes-frontend && npm run build && xcopy dist ../part2-notes-backend /s /e /i /y",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && git push",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Victor Alejandro Contreras Vargas",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.21.1"
+    "dotenv": "^16.4.6",
+    "express": "^4.21.1",
+    "mongoose": "^8.8.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.7"
